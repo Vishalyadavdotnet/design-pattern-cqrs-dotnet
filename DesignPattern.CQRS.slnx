@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DesignPattern.CQRS.Api/DesignPattern.CQRS.Api.csproj" />
+    <Project Path="src/DesignPattern.CQRS.Application/DesignPattern.CQRS.Application.csproj" />
+    <Project Path="src/DesignPattern.CQRS.Domain/DesignPattern.CQRS.Domain.csproj" />
+    <Project Path="src/DesignPattern.CQRS.Infrastructure/DesignPattern.CQRS.Infrastructure.csproj" />
+  </Folder>
+</Solution>
