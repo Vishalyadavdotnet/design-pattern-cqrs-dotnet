@@ -156,8 +156,26 @@ dotnet run --project src/DesignPattern.CQRS.Api
 ```
 
 Once running, navigate to:
-*   **Scalar Interactive UI**: `https://localhost:<port>/scalar/v1`
-*   **OpenAPI Document**: `https://localhost:<port>/openapi/v1.json`
+*   **Scalar Interactive UI**: `http://localhost:5000/scalar/v1` or `https://localhost:5001/scalar/v1`
+*   **OpenAPI Document**: `http://localhost:5000/openapi/v1.json`
+
+### 4. Run the React Client
+Open a separate terminal window, navigate to the `client` directory, and start the development server:
+```powershell
+# Navigate to client directory
+cd client
+
+# Install dependencies (already completed during setup)
+npm install
+
+# Run the Vite React developer server
+npm run dev
+```
+
+Once running:
+*   Open your browser to: `http://localhost:5173`
+*   Use the **CQRS Pipeline Visualizer** panel on the right side of the dashboard to trace exactly how MediatR dispatches Commands/Queries, runs logging/validation pipeline behaviors, executes handlers, and commits transactions.
+*   **Configuring API URL**: If your backend runs on a different port, you can change the connection URL dynamically in the top bar of the dashboard and hit Enter to test connection.
 
 ---
 

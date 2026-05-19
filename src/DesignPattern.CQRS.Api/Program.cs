@@ -28,6 +28,18 @@ try
     // Add .NET native OpenAPI document generator
     builder.Services.AddOpenApi();
 
+    // Add CORS services
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowFrontend", policy =>
+        {
+            policy.WithOrigins("http://localhost:5173", "https://localhost:5173")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        });
+    });
+
     // Register Clean Architecture Layers
     builder.Services.AddApplicationServices();
     builder.Services.AddInfrastructureServices(builder.Configuration);
@@ -38,6 +50,9 @@ try
 
     // Global exception handling middleware is placed first to catch all subsequent request pipeline errors
     app.UseMiddleware<ExceptionHandlingMiddleware>();
+
+    // Apply CORS policy before other routing/authorization middlewares
+    app.UseCors("AllowFrontend");
 
     if (app.Environment.IsDevelopment())
     {
